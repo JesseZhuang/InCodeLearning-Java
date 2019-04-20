@@ -1,0 +1,33 @@
+package github.incodelearning.basics;
+
+public class DemoJDK12Switch {
+
+    public enum Size {S, M, L, XL}
+
+    public static int calcHeight(Size size) {
+        int height = 0;
+        switch (size) {
+            case S:
+                height = 18;
+            case M:
+                height = 20;
+                break;
+            case L:
+                height = 25;
+                break;
+        }
+        return height;
+    }
+
+    public static int calcHeightSwitchExp(Size size) {
+        return switch (size) {
+            case S -> 18;
+            case M -> {
+                System.out.println("Returning 20 for size M.");
+                break 20;
+            }
+            case L -> 25;
+            default -> throw new IllegalArgumentException("Unexpected value: " + size);
+        };
+    }
+}

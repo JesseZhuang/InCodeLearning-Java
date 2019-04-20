@@ -28,9 +28,9 @@ public class ListTest {
         List<Integer> list1 = new ArrayList<>(Arrays.asList(nums));
         List<Integer> list2 = new LinkedList<>(Arrays.asList(nums));
         list1.remove(1);
-        list2.remove(new Integer(6));
+        list2.remove(Integer.valueOf(6));
         assertEquals("1th element 6 was removed from both lists", list1, list2);
-        list1.remove(new Integer(1));
+        list1.remove(Integer.valueOf(1));
         list2.remove(4);
         assertEquals("4th element 1 was removed from both lists", list1, list2);
     }
