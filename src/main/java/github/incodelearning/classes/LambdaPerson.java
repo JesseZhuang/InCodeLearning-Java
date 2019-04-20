@@ -156,7 +156,7 @@ public class LambdaPerson {
 		for (String string : stringArray) {
 			System.out.println(string);
 		}
-		
+
 		Set<LambdaPerson> rosterSetLambda =
 			    transferElements(roster, () -> { return new HashSet<>(); });
 		Set<LambdaPerson> rosterSet = transferElements(roster, HashSet::new);

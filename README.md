@@ -2,7 +2,7 @@
 
 This repository is for Core Java, may include:
 
-- Junit 4.12 for testing 
+- Junit 4.12 for testing
 - Guava 19.0 (close to core Java)
 - Apache Commons (May add later)
 

@@ -52,20 +52,25 @@ public class DemoOptionalTest {
 
     @Test
     public void testCascading() {
+        // null computer
         DemoOptional.Computer computer = null;
         assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
+
         String version = "2.3";
         computer = tbt.new Computer(tbt.new SoundCard(tbt.new USB(version)));
         assertEquals(version, getVersion(Optional.of(computer)));
+        // null usb
         computer = tbt.new Computer(tbt.new SoundCard(tbt.new USB(null)));
         assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
-        computer = tbt.new Computer(tbt.new SoundCard());
+        // null sound card
+        computer = tbt.new Computer(null);
         assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
     }
 
     @Test(expected = NullPointerException.class)
     public void testOptionalDefaultValue() {
         DemoOptional.SoundCard soundCard = tbt.new SoundCard();
+        // calling .ifPresent throws NullPointer since the Optional<USB> is null, not Optional.empty()
         soundCard.getUsb().ifPresent(usb -> System.out.println(usb));
     }
 

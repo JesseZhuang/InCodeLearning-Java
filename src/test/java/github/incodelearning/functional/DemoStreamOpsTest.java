@@ -21,6 +21,7 @@ public class DemoStreamOpsTest {
     @Before
     public void setup() {
         tbt = new DemoStreamOps();
+        setupBlogPosts();
     }
 
     @Test
@@ -97,7 +98,6 @@ public class DemoStreamOpsTest {
 
     @Test
     public void testGroupingByComplexType() {
-        setupBlogPosts();
         Map<Tuple, List<BlogPost>> postsPerTypeAndAuthor = posts.stream()
                 .collect(groupingBy(post -> new Tuple(post.getType(), post.getAuthor())));
         System.out.println(postsPerTypeAndAuthor);
@@ -105,7 +105,6 @@ public class DemoStreamOpsTest {
 
     @Test
     public void testGroupingByModifyReturnType(){
-        setupBlogPosts();
         Map<BlogPostType, Set<BlogPost>> postsPerType = posts.stream().collect(groupingBy(BlogPost::getType, toSet()));
         System.out.println(postsPerType);
         EnumMap<BlogPostType, List<BlogPost>> postsByType = posts.stream().collect(groupingBy(BlogPost::getType,
@@ -115,7 +114,6 @@ public class DemoStreamOpsTest {
 
     @Test
     public void testGroupingByThenGroupingBy() {
-        setupBlogPosts();
         Map<String, Map<BlogPostType, List<BlogPost>>> map = posts.stream()
                 .collect(groupingBy(BlogPost::getAuthor, groupingBy(BlogPost::getType)));
         System.out.println(map);
@@ -123,7 +121,6 @@ public class DemoStreamOpsTest {
 
     @Test
     public void testGroupingByAvgOrStat() {
-        setupBlogPosts();
         Map<BlogPostType, Double> averageLikesPerType = posts.stream()
                 .collect(groupingBy(BlogPost::getType, averagingInt(BlogPost::getLikes)));
         System.out.println(averageLikesPerType);
@@ -136,5 +133,6 @@ public class DemoStreamOpsTest {
     public void testConcurrentGroupingBy() {
         ConcurrentMap<BlogPostType, List<BlogPost>> postsPerType = posts.parallelStream()
                 .collect(groupingByConcurrent(BlogPost::getType));
+        System.out.println(postsPerType);
     }
 }
