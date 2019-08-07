@@ -19,6 +19,13 @@ public class DemoOptionalTest {
     }
 
     @Test
+    public void testFlatMap3() {
+        Integer n = 1;
+        Optional<Optional<Optional<Integer>>> optionalInteger = Optional.of(Optional.of(Optional.ofNullable(n)));
+        System.out.println(optionalInteger.flatMap(n1 -> n1.flatMap(n2 -> n2.map(n3 -> n3 * 2))));
+    }
+
+    @Test
     public void testIfPresent() {
         Optional<DemoOptional.USB> optionalUsb = Optional.of(tbt.new USB("3.0"));
         optionalUsb.ifPresent(System.out::println);
