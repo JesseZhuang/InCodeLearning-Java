@@ -28,13 +28,13 @@ public class DemoFutureTest {
         }
 
         Integer result = future.get();
-        assertEquals(new Integer(100), result);
+        assertEquals(Integer.valueOf(100), result);
     }
 
     @Test
     public void testGetFutureWithTimeout() throws InterruptedException, ExecutionException, TimeoutException {
         Future<Integer> future = tbt.calculate(3);
-        assertEquals(new Integer(9), future.get(1500, TimeUnit.MILLISECONDS));
+        assertEquals(Integer.valueOf(9), future.get(1500, TimeUnit.MILLISECONDS));
     }
 
     @Test(expected = TimeoutException.class)
