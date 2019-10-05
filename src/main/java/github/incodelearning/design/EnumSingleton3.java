@@ -1,4 +1,4 @@
-package github.incodelearning.design_pattern;
+package github.incodelearning.design;
 
 public enum EnumSingleton3 {
     INSTANCE;

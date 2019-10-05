@@ -1,4 +1,4 @@
-package github.incodelearning.design_pattern;
+package github.incodelearning.design;
 
 /**
  * Singleton constructed when enum first time accessed at runtime.

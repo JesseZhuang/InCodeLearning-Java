@@ -1,4 +1,4 @@
-package github.incodelearning.design_pattern;
+package github.incodelearning.design;
 
 /**
  * <p>Singleton pattern restricts instantiation of a class to be exactly only one instance in JVM.
