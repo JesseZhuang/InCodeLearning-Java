@@ -6,6 +6,13 @@ Currently using OpenJDK12 with Hotspot JVM.
 
 https://github.com/AdoptOpenJDK/homebrew-openjdk
 
+```bash
+/usr/libexec/java_home -V # mac java installs
+jenv add <jdk_path>
+jenv global <version> # 1.8.0.202
+jenv versions
+```
+
 # IDE
 
 IntelliJ Idea community edition latest.
@@ -30,6 +37,21 @@ IntelliJ Idea community edition latest.
   </plugins>
 </build>
 ```
+
+# Maven
+
+```bash
+# Check what java version maven is using
+$mvn -version
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T11:33:14-07:00)
+Maven home: /usr/local/Cellar/maven/3.5.4/libexec
+Java version: 1.8.0_202, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.14.6", arch: "x86_64", family: "mac"
+# set maven to use java version set by jenv
+$jenv enable-plugin maven
+```
+
 
 
 ## Maven Loading Archetype List in IntelliJ For Ever

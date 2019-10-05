@@ -1,3 +1,5 @@
+*.DS_Store
 .idea/
 InCodeLearning-Java.iml
 target/
+*.iml
