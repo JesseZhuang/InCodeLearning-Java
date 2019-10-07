@@ -41,7 +41,6 @@ public class ThreadPoolTest {
         AtomicLong timeCost;
     }
 
-    @Test
     public void testRunWithoutThreadPool() {
         for (int i = 0; i < 10; i++) {
             TaskMetrics taskMetrics = new TaskMetrics(System.currentTimeMillis(), new AtomicInteger(0),
@@ -55,7 +54,6 @@ public class ThreadPoolTest {
         for (; ; ) ;
     }
 
-    @Test
     public void testRunWithThreadPool() {
         for (int i = 0; i < 10; i++) {
             TaskMetrics taskMetrics = new TaskMetrics(System.currentTimeMillis(), new AtomicInteger(0),

@@ -61,17 +61,17 @@ public class DemoOptionalTest {
     public void testCascading() {
         // null computer
         DemoOptional.Computer computer = null;
-        assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
+        assertEquals(DemoOptional.UNKNOWN, tbt.getComputerSoundCardUSBVersion(Optional.ofNullable(computer)));
 
         String version = "2.3";
         computer = tbt.new Computer(tbt.new SoundCard(tbt.new USB(version)));
-        assertEquals(version, getVersion(Optional.of(computer)));
+        assertEquals(version, tbt.getComputerSoundCardUSBVersion(Optional.of(computer)));
         // null usb
         computer = tbt.new Computer(tbt.new SoundCard(tbt.new USB(null)));
-        assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
+        assertEquals(DemoOptional.UNKNOWN, tbt.getComputerSoundCardUSBVersion(Optional.ofNullable(computer)));
         // null sound card
         computer = tbt.new Computer(null);
-        assertEquals(DemoOptional.UNKNOWN, getVersion(Optional.ofNullable(computer)));
+        assertEquals(DemoOptional.UNKNOWN, tbt.getComputerSoundCardUSBVersion(Optional.ofNullable(computer)));
     }
 
     @Test(expected = NullPointerException.class)
@@ -79,11 +79,5 @@ public class DemoOptionalTest {
         DemoOptional.SoundCard soundCard = tbt.new SoundCard();
         // calling .ifPresent throws NullPointer since the Optional<USB> is null, not Optional.empty()
         soundCard.getUsb().ifPresent(usb -> System.out.println(usb));
-    }
-
-    private String getVersion(Optional<DemoOptional.Computer> optionalComputer) {
-        return optionalComputer.flatMap(DemoOptional.Computer::getSoundCard)
-                .flatMap(DemoOptional.SoundCard::getUsb)
-                .flatMap(DemoOptional.USB::getVersion).orElse(DemoOptional.UNKNOWN);
     }
 }

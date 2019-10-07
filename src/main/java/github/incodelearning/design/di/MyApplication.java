@@ -1,7 +1,5 @@
 package github.incodelearning.design.di;
 
-import com.google.inject.Inject;
-
 public class MyApplication {
 
     private MessageService service;
@@ -14,11 +12,11 @@ public class MyApplication {
 
     //setter method injector
     @javax.inject.Inject
-    public void setService(MessageService svc){
-        this.service=svc;
+    public void setService(MessageService svc) {
+        this.service = svc;
     }
 
-    public boolean sendMessage(String msg, String rec){
+    public boolean sendMessage(String msg, String rec) {
         //some business logic here
         return service.sendMessage(msg, rec);
     }

@@ -8,34 +8,50 @@ import java.util.Optional;
  */
 public class DemoOptional {
     public static final String UNKNOWN = "unknown";
-    /** Computer may or may not have a sound card */
+
+    /**
+     * Computer may or may not have a sound card
+     */
     public class Computer {
         public Optional<SoundCard> soundCard;
+
         public Computer(SoundCard soundCard) {
             this.soundCard = Optional.ofNullable(soundCard);
         }
-        public Optional<SoundCard> getSoundCard(){
+
+        public Optional<SoundCard> getSoundCard() {
             return soundCard;
         }
     }
-    /** Sound card may or may not have a usb port */
+
+    /**
+     * Sound card may or may not have a usb port
+     */
     public class SoundCard {
         public Optional<USB> usb;
+
         public SoundCard(USB usb) {
             this.usb = Optional.ofNullable(usb);
         }
+
         public SoundCard() {
         }
+
         public Optional<USB> getUsb() {
             return usb;
         }
     }
-    /** usb port may or may not have a version */
+
+    /**
+     * usb port may or may not have a version
+     */
     public class USB {
         public Optional<String> version;
-        public USB (String version) {
+
+        public USB(String version) {
             this.version = Optional.ofNullable(version);
         }
+
         public Optional<String> getVersion() {
             return version;
         }
@@ -44,5 +60,11 @@ public class DemoOptional {
         public String toString() {
             return String.format("USB[Version:%s]", version.orElse(UNKNOWN));
         }
+    }
+
+    public String getComputerSoundCardUSBVersion(Optional<DemoOptional.Computer> optionalComputer) {
+        return optionalComputer.flatMap(DemoOptional.Computer::getSoundCard)
+                .flatMap(DemoOptional.SoundCard::getUsb)
+                .flatMap(DemoOptional.USB::getVersion).orElse(DemoOptional.UNKNOWN);
     }
 }

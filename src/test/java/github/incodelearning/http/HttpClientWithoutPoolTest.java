@@ -30,7 +30,6 @@ public class HttpClientWithoutPoolTest extends BaseHttpClientTest {
      *    tcp4       0      0  127.0.0.1.49498        127.0.0.1.8000         TIME_WAIT
      * </pre>
      */
-    @Test
     public void test() {
         startAllThreads(getRunThreads(new HttpThread()));
         for (; ; ) ; // wait for threads to run

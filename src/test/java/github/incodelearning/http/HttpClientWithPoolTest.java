@@ -46,7 +46,6 @@ public class HttpClientWithPoolTest extends BaseHttpClientTest {
      * tcp4       0      0  127.0.0.1.51672        127.0.0.1.8000         TIME_WAIT
      * </pre>
      */
-    @Test
     public void correctTest() throws InterruptedException {
         PoolingHttpClientConnectionManager pool = new PoolingHttpClientConnectionManager();
         pool.setDefaultMaxPerRoute(1);
@@ -101,7 +100,6 @@ public class HttpClientWithPoolTest extends BaseHttpClientTest {
      * Do not call any other release method on HttpPost or Client objects.
      * Must read the input steam. Close the response directly will result in not reusing connections.
      */
-    @Test
     public void test() {
         List<Thread> threads = getRunThreads(new HttpThread());
         startAllThreads(threads);
