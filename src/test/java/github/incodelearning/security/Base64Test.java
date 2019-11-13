@@ -29,6 +29,17 @@ public class Base64Test {
      * represented in 6 bits, 2 bits short of a full byte. We can represent base64 encoding versus the byte paradigm
      * as a fraction: 6 bits per character over 8 bits per byte. Reduced this fraction is
      * 3 bytes over 4 base64 characters.
+     * <p>
+     * See <a href="https://stackoverflow.com/questions/3538021/why-do-we-use-base64">why base64</a>. When you
+     * encode text in ASCII, you start with a text string and convert it to a sequence of bytes (text -> binary).
+     * When you encode data in Base64, you start with a sequence of bytes and convert it to a text string
+     * (binary -> text). An example usage is to encode binary data in XML, e.g.,
+     * <pre>
+     * {@code
+     * <images>
+     *     <image name="Sally" encoding="base64">j23894uaiAJSD3234kljasjkSD...</image>
+     * </images>}
+     * </pre>
      */
     @Test
     public void testEncode() {
