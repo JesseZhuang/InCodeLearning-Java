@@ -4,7 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DemoCallableTest {
 
@@ -38,5 +41,28 @@ public class DemoCallableTest {
         double time = (endTime - startTime) / 1000d;
         System.out.println("time " + time);
         Assert.assertTrue(time >= 0L && time < 5L);
+    }
+
+    @Test
+    public void whenException_ThenCallableThrowsIt() throws ExecutionException, InterruptedException {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        DemoCallable.FactorialCallable callable = new DemoCallable.FactorialCallable(-5);
+        Future<Integer> future = executorService.submit(callable);
+
+        try {
+            future.get().intValue();
+        } catch (ExecutionException e) {
+            assertEquals(e.getCause().getClass(), IllegalArgumentException.class);
+            assertTrue(e.getCause() instanceof IllegalArgumentException);
+        }
+    }
+
+    @Test
+    public void whenException_ThenCallableDoesntThrowsItIfGetIsNotCalled(){
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        DemoCallable.FactorialCallable task = new DemoCallable.FactorialCallable(-5);
+        Future<Integer> future = executorService.submit(task);
+
+        assertEquals(false, future.isDone());
     }
 }

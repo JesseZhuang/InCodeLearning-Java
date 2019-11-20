@@ -1,5 +1,7 @@
 package github.incodelearning.concurrency.oracle;
 
+import lombok.AllArgsConstructor;
+
 import java.util.Random;
 import java.util.concurrent.Callable;
 
@@ -24,6 +26,20 @@ public class DemoCallable {
             Thread.sleep(randomNumber * 1000);
 
             return randomNumber;
+        }
+    }
+
+    @AllArgsConstructor
+    public static class FactorialCallable implements Callable<Integer> {
+        int number;
+
+        public Integer call() throws IllegalArgumentException {
+            if (number < 0) throw new IllegalArgumentException("Cannot calculate factorial for negative number.");
+            int fact = 1;
+            for(int count = number; count > 1; count--) {
+                fact = fact * count;
+            }
+            return fact;
         }
     }
 }
