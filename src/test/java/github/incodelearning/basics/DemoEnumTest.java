@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class DemoEnumTest {
 
     static DemoEnum.DayOfWeek tbt = DemoEnum.DayOfWeek.MONDAY;
+    private static final String MONDAY = "MONDAY";
 
     @Test
     public void testEnumToString() {
@@ -35,5 +36,11 @@ public class DemoEnumTest {
     public void testNullEnumPrintNoNPE() {
         DemoEnum.DayOfWeek day = null;
         System.out.println("day: " + day);
+    }
+
+    @Test
+    public void testEnumNoOverrideToString() {
+        assertEquals("MONDAY", DemoEnum.DayOfWeekNoToStringOverride.MONDAY.toString());
+        assertEquals("MONDAY", DemoEnum.DayOfWeekNoToStringOverride.MONDAY.name());
     }
 }

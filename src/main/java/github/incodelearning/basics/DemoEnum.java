@@ -16,4 +16,8 @@ public class DemoEnum {
             return this.day;
         }
     }
+
+    enum DayOfWeekNoToStringOverride {
+        MONDAY, TUESDAY, WEDNESDAY
+    }
 }
