@@ -9,15 +9,16 @@ public class DemoEnumTest {
 
     static DemoEnum.DayOfWeek tbt = DemoEnum.DayOfWeek.MONDAY;
     private static final String MONDAY = "MONDAY";
+    private static final String MONDAY_CAMEL = "Monday";
 
     @Test
     public void testEnumToString() {
-        assertEquals("Monday", tbt.toString());
+        assertEquals(MONDAY_CAMEL, tbt.toString());
     }
 
     @Test
     public void testEnumName() {
-        assertEquals("MONDAY", tbt.name());
+        assertEquals(MONDAY, tbt.name());
     }
 
     @Test(expected = NullPointerException.class)
@@ -40,7 +41,17 @@ public class DemoEnumTest {
 
     @Test
     public void testEnumNoOverrideToString() {
-        assertEquals("MONDAY", DemoEnum.DayOfWeekNoToStringOverride.MONDAY.toString());
-        assertEquals("MONDAY", DemoEnum.DayOfWeekNoToStringOverride.MONDAY.name());
+        assertEquals(MONDAY, DemoEnum.DayOfWeekNoToStringOverride.MONDAY.toString());
+        assertEquals(MONDAY, DemoEnum.DayOfWeekNoToStringOverride.MONDAY.name());
+    }
+
+    @Test
+    public void testValueOf() {
+        assertEquals(DemoEnum.DayOfWeek.MONDAY, DemoEnum.DayOfWeek.valueOf(MONDAY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void valueOfUnexpectedShouldThrowException() {
+        DemoEnum.DayOfWeek.valueOf(MONDAY_CAMEL);
     }
 }
