@@ -11,11 +11,17 @@ import static org.junit.Assert.assertEquals;
 
 public class DemoOptionalTest {
 
-    DemoOptional tbt;
+    private DemoOptional tbt;
 
     @Before
     public void setup() {
         this.tbt = new DemoOptional();
+    }
+
+    @Test
+    public void testOrElse() {
+        System.out.println(Optional.ofNullable(null).orElse("default"));
+        System.out.println(Optional.ofNullable("present").orElse("default"));
     }
 
     @Test
