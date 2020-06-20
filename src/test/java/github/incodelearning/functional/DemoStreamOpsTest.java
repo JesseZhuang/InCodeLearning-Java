@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 import static github.incodelearning.functional.DemoStreamOpsTest.BlogPostType.*;
 import static java.util.stream.Collectors.*;
@@ -79,6 +80,15 @@ public class DemoStreamOpsTest {
                 new BlogPost("Huckleberry Review", "Derek", REVIEW, 100),
         };
         posts = Arrays.asList(blogPosts);
+    }
+
+    @Test
+    public void testPeek() {
+        List<String> authors = posts.stream()
+                .peek(p -> System.out.println("post: " + p))
+                .map(p -> p.getAuthor())
+                .collect(Collectors.toList());
+        System.out.println(authors);
     }
 
     @Test
