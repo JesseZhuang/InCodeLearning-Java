@@ -1,8 +1,21 @@
-# Java
+# Java on Github Codespaces
+
+https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java
+
+Using Java 17: https://github.com/devcontainers/templates/tree/main/src/java
+
+```
+$ java --version
+openjdk 11.0.14.1 2022-02-08 LTS
+OpenJDK Runtime Environment Microsoft-31205 (build 11.0.14.1+1-LTS)
+OpenJDK 64-Bit Server VM Microsoft-31205 (build 11.0.14.1+1-LTS, mixed mode)
+```
+
+# Java on Mac
 
 Latest OpenJDK.
 
-Currently using OpenJDK12 with Hotspot JVM.
+Was using OpenJDK12 with Hotspot JVM.
 
 https://github.com/AdoptOpenJDK/homebrew-openjdk
 
