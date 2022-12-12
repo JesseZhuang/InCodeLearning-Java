@@ -1,9 +1,8 @@
 package github.incodelearning.basics;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class DemoEnumTest {
 
