@@ -6,9 +6,9 @@ Using Java 17: https://github.com/devcontainers/templates/tree/main/src/java
 
 ```
 $ java --version
-openjdk 11.0.14.1 2022-02-08 LTS
-OpenJDK Runtime Environment Microsoft-31205 (build 11.0.14.1+1-LTS)
-OpenJDK 64-Bit Server VM Microsoft-31205 (build 11.0.14.1+1-LTS, mixed mode)
+openjdk 17.0.5 2022-10-18 LTS
+OpenJDK Runtime Environment Microsoft-6841604 (build 17.0.5+8-LTS)
+OpenJDK 64-Bit Server VM Microsoft-6841604 (build 17.0.5+8-LTS, mixed mode, sharing)
 ```
 
 # Java on Mac

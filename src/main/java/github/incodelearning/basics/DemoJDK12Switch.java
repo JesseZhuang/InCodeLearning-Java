@@ -17,11 +17,6 @@ public class DemoJDK12Switch {
             case L:
                 height = 25;
                 break;
-            case XL:
-                height = 30;
-                break;
-            default:
-                throw new IllegalArgumentException("unexpected size: " + size);
         }
         return height;
     }
@@ -34,7 +29,6 @@ public class DemoJDK12Switch {
                 yield 20; // break 20; syntax change since java 13
             }
             case L -> 25;
-            case XL -> 30;
             default -> throw new IllegalArgumentException("Unexpected value: " + size);
         };
     }
