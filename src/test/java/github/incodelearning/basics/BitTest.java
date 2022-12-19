@@ -23,4 +23,11 @@ public class BitTest {
         assertEquals(2147483647, -2 >>> 1); // logical (unsigned) shift
         assertEquals(2147483647, 0x7fffffff); // first byte 0111 1111
     }
+
+    @Test
+    public void testRightMost1Bit() {
+        int[] nums = {0b110, 0b10, 0b10100};
+        int[] expected = {0b10, 0b10, 0b100};
+        for (int i = 0; i < nums.length; i++) assertEquals(expected[i], nums[i] & -nums[i]);
+    }
 }
