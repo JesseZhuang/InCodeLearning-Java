@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class BitTest {
     @Test
     public void testNegate() {
-        // negated = -original-1
+        // bitwise negation = -original-1
         assertEquals(0xffff0000, ~0x0000ffff); // -65536, 65535
         assertEquals(0xffffffff, ~0x00000000); // -1, 0
         // negative indicates not found, bs returned -3, ~(-2) == 2 the index where 3 should be inserted
