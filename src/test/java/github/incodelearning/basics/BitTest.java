@@ -13,7 +13,15 @@ public class BitTest {
         // negated = -original-1
         assertEquals(0xffff0000, ~0x0000ffff); // -65536, 65535
         assertEquals(0xffffffff, ~0x00000000); // -1, 0
+        // negative indicates not found, bs returned -3, ~(-2) == 2 the index where 3 should be inserted
         assertEquals(2, ~Collections.binarySearch(Arrays.asList(1, 2, 4), 3));
+        assertEquals(3, ~Collections.binarySearch(Arrays.asList(1, 2, 4), 6));
+        assertEquals(0, ~Collections.binarySearch(Arrays.asList(1, 2, 4), -2));
+        // found, return a non-negative index
+        assertEquals(0, Collections.binarySearch(Arrays.asList(1, 2, 4), 1));
+        // no guarantee which index for the duplicates will be returned
+        assertEquals(1, Collections.binarySearch(Arrays.asList(1, 1, 2, 4), 1));
+        assertEquals(2, Collections.binarySearch(Arrays.asList(1, 1, 1, 2, 4), 1));
     }
 
     @Test
