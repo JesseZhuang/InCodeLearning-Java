@@ -13,17 +13,24 @@ OpenJDK 64-Bit Server VM Microsoft-6841604 (build 17.0.5+8-LTS, mixed mode, shar
 
 # Java on Mac
 
-Latest OpenJDK.
+Latest OpenJDK, using Amazon Coretto. Other options: Oracle, RedHat, Eclipse temurin, .etc
 
-Was using OpenJDK12 with Hotspot JVM.
-
-https://github.com/AdoptOpenJDK/homebrew-openjdk
+Was using OpenJDK12 with Hotspot JVM: https://github.com/AdoptOpenJDK/homebrew-openjdk
 
 ```bash
 /usr/libexec/java_home -V # mac java installs
 jenv add <jdk_path>
 jenv global <version> # 1.8.0.202
 jenv versions
+```
+
+```bash
+# installed Coretto jdks, selecting jdk in intelliJ
+$ /usr/libexec/java_home -V
+Matching Java Virtual Machines (2):
+    17.0.5 (x86_64) "Amazon.com Inc." - "Amazon Corretto 17" /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
+    1.8.0_282 (x86_64) "Amazon" - "Amazon Corretto 8" /Users/zexiz/Library/Java/JavaVirtualMachines/corretto-1.8.0_282/Contents/Home
+/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
 ```
 
 # IDE
