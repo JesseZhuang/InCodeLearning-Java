@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,6 +45,21 @@ public class ListTest {
         Integer[] nums = {1, 2, 3};
         List<Integer> list = Arrays.asList(nums);
         list.add(5);
+    }
+
+    /**
+     * For user implemented linked list with Node class, removing a node while looking at it is O(1). Java
+     * linked list can support this with iterator remove.
+     */
+    @Test
+    public void testEfficientLinkedListRemove() {
+        List<Integer> list = new LinkedList<>(Arrays.asList(new Integer[]{1, 2, 3, 4, 5}));
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Integer i = iterator.next();
+            if (i == 4) iterator.remove();
+        }
+        assertEquals(List.of(1, 2, 3, 5), list);
     }
 
 }
