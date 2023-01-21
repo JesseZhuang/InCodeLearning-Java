@@ -23,4 +23,14 @@ public class StringTests {
         System.out.println(Character.toChars(charLimit - 1)); // not visible
         System.out.println(Character.toChars(128522)); // smiley face
     }
+
+    @Test
+    public void testCharLimit() {
+        final int limit = 0x10000;
+        assertEquals(65536, limit);
+        for (int i = 0x100; i < 0x20000; i++) {
+            if (i >= limit) assertEquals(2, Character.charCount(i));
+            else assertEquals(1, Character.charCount(i));
+        }
+    }
 }
