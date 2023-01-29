@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BitTest {
     @Test
@@ -37,5 +38,14 @@ public class BitTest {
         int[] nums = {0b110, 0b10, 0b10100};
         int[] expected = {0b10, 0b10, 0b100};
         for (int i = 0; i < nums.length; i++) assertEquals(expected[i], nums[i] & -nums[i]);
+    }
+
+    @Test
+    public void testOverflow() {
+        assertTrue(Integer.MAX_VALUE > Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE - Integer.MIN_VALUE);
+        System.out.println(Integer.toHexString(Integer.MAX_VALUE - Integer.MIN_VALUE));
+        assertTrue(Integer.MAX_VALUE - Integer.MIN_VALUE < 0);
+        assertTrue(Integer.MAX_VALUE - (-1) < 0);
     }
 }
