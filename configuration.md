@@ -80,3 +80,7 @@ $jenv enable-plugin maven
 
 - update maven repo: Settings->Maven->Repositories - select maven's Central repo (if it's there; otherwise you should add it (http://repo.maven.apache.org/maven2/)) and press Update button.
 - Maven->Importing: "VM options for importer" to -Xmx1024m (default is -Xmx512m and it's not enough).
+
+# on windows
+
+Converted to gradle. Maven had issues running all unit tests. Downloaded Coretto 17 JDK with IntelliJ Idea.

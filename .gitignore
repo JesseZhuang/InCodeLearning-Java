@@ -4,3 +4,9 @@ InCodeLearning-Java.iml
 target/
 *.iml
 .vscode/
+# gradle files, gradle wrapper will download gradle in .gradle/ folder and generate gradlew and gradlew.bat
+.gradle/
+gradle
+gradlew
+gradlew.bat
+build/

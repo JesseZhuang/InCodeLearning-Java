@@ -2,7 +2,6 @@ package github.incodelearning.security;
 
 
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.impl.Base64Codec;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.SecretKey;
@@ -39,6 +38,7 @@ public class JWTWrapper {
 
     public static Claims parse(String jwt) {
         SecretKey secretKey = key(SECRET);
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody(); // jjwt 0.9.x
+        // return Jwts.parser().build().parseSignedClaims(jwt).getPayload(); // jjwt 0.12.x
     }
 }

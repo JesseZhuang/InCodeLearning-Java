@@ -1,0 +1,41 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('com.google.guava:guava:28.1-jre')
+    // lombok
+    compileOnly('org.projectlombok:lombok:1.18.32')
+    testCompileOnly('org.projectlombok:lombok:1.18.32')
+    annotationProcessor('org.projectlombok:lombok:1.18.32')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.32')
+
+    testImplementation('junit:junit:4.13')
+    compileOnly("javax.servlet:servlet-api:2.5")
+    implementation("net.jcip:jcip-annotations:1.0")
+    implementation("org.apache.httpcomponents:httpclient:4.5.9")
+    // https://mvnrepository.com/artifact/com.google.inject/guice
+    implementation("com.google.inject:guice:6.0.0")
+    testImplementation("org.mockito:mockito-core:5.0.0")
+    testImplementation("org.testng:testng:6.14.3")
+    implementation("io.jsonwebtoken:jjwt:0.9.0")
+    implementation("javax.xml.bind:jaxb-api:2.3.1") // used in JWTWrapperTest
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+wrapper {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '8.8'
+}
